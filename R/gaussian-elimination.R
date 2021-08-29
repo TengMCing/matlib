@@ -105,7 +105,7 @@ gaussianElimination <- function(A, B, tol=sqrt(.Machine$double.eps),
             A <- rowmult(A, i, 1/pivot) # pivot (E1)
             if (verbose && abs(pivot - 1) > tol){
                 cat("\n multiply row", i, "by",
-                    if (fractions) as.character(MASS::fractions(1/pivot), cycles = 1000, max.denominator = 10^5) else 1/pivot, "\n")
+                    if (fractions) as.character(MASS::fractions(1/pivot, cycles = 1000, max.denominator = 10^5)) else 1/pivot, "\n")
                 printMatrix(A)
             }
             for (k in 1:n){
