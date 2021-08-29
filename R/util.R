@@ -35,7 +35,7 @@ printMatrix <- function(A, parent = TRUE, fractions = FALSE, latex = FALSE,
 }
 
 formatNumbers <- function(x, fractions=FALSE, tol=sqrt(.Machine$double.eps)){
-	ret <- if (fractions) MASS::fractions(x) else round(x, round(abs(log(tol, 10))))
+	ret <- if (fractions) MASS::fractions(x, cycles = 1000, max.denominator = 10^5) else round(x, round(abs(log(tol, 10))))
 	ret
 }
 
